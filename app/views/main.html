@@ -1,23 +1,36 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="content" ng-controller="MainCtrl" ng-init="getData()">
+  <p>Custom search for twitch</p>
+  <h1>List of streams: </h1>
+  <table id="streams-list" class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Streamer</th>
+      <th>Stream</th>
+      <th>Game</th>
+      <th>Viewers <span class="glyphicon glyphicon-triangle-bottom" ng-class="{reverse:reverseIcon}" ng-click="setOrder()"></span></th>
+      <th>Tags</th>
+    </tr>
+    </thead>
+    <!-- tbody ng-repeat="stream in list[0].streams" -->
+    <tbody ng-repeat="stream in streamsList">
+        <tr>
+          <td>
+            <b>{{stream.channel.display_name}}</b>
+          </td>
+          <td>
+            <a href='#stream-details' class='streamlink'>
+              <i>{{stream.channel.status}}</i>
+            </a>
+          </td>
+          <td>{{stream.game}}</td>
+          <td>{{stream.viewers}}</td>
+          <td>
+            <span class="label label-primary">{{stream.channel.broadcaster_language}}</span>
+            <span ng-show="stream.channel.partner" class="label label-info">Partner</span>
+            <span ng-show="stream.channel.mature" class="label label-danger">Mature</span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
 </div>
