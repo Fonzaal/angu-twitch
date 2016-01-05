@@ -16,5 +16,16 @@ angular.module('anguTwitchApp')
         });
       return deferred.promise;
     };
+    service.getStreamerDetails = function (user){
+      var deferred = $q.defer();
+      $http.get(baseUrl + '/' + user).
+        success(function(data){
+          deferred.resolve(data);
+        }).
+        error(function(){
+          deferred.reject('There was an error');
+        });
+      return deferred.promise;
+    };
     return service;
   }]);

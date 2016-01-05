@@ -20,7 +20,7 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/streams-list.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
@@ -28,6 +28,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/streamer/:user', {
+        templateUrl: 'views/streamer-details.html',
+        controller: 'DetailsCtrl'
       })
       .otherwise({
         redirectTo: '/'

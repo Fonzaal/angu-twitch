@@ -15,7 +15,7 @@
     <tbody ng-repeat="stream in streamsList">
         <tr>
           <td>
-            <b>{{stream.channel.display_name}}</b>
+            <b><a href="#/streamer/{{stream.channel.name}}"> {{stream.channel.display_name}} </a></b>
           </td>
           <td>
             <a href='#stream-details' class='streamlink'>

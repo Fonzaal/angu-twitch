@@ -1,0 +1,11 @@
+<div class="content" ng-controller="DetailsCtrl" ng-init="getData()">
+
+  <h1><img ng-src="{{streamerDetails.channel.logo}}" height="45px" /> {{streamerDetails.channel.display_name}}</h1>
+  <p><b>Details of streamer:</b></p>
+  <p><b>Game:</b>{{streamerDetails.game}}</p>
+  <p><b>Title of stream:</b> {{streamerDetails.channel.status}}</p>
+  <p><b>Followers:</b> {{streamerDetails.channel.followers}}</p>
+  <p><b>Preview:</b></p>
+  <img ng-src="{{streamerDetails.preview.medium}}" />
+  <p><a href="{{streamerDetails.channel.url}}" target="_blank" class="btn btn-primary btn-lg" role="button">Go to channel</a></p>
+</div>
