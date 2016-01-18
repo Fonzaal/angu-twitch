@@ -27,5 +27,18 @@ angular.module('anguTwitchApp')
         });
       return deferred.promise;
     };
+
+    service.getChatters = function (user){
+      var deferred = $q.defer();
+      $http.get('https://tmi.twitch.tv/group/user/' + user + '/chatters').
+        success(function(){
+          deferred.resolve(data);
+        }).
+        error(function(){
+          deferred.reject('There was an error getting chatters!');
+        });
+      return deferred.promise;
+    };
+
     return service;
   }]);
